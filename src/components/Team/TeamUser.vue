@@ -52,6 +52,10 @@ defineProps<Props>()
         padding: 7px 18px;
         border-radius: 15px;
         font-weight: 700;
+
+        &:hover {
+            background-color: $text-primary;
+        }
     }
 
     .title {

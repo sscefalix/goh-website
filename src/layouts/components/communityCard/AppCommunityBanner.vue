@@ -4,13 +4,13 @@ import AppButton from "../../../components/AppButton.vue";
 </script>
 
 <template>
-    <div class="content__banner">
+    <a class="content__banner" href="https://t.me/goh_official">
         <div class="banner__left">
             <h3 class="banner__title">Подписывайтесь на нас в Telegram!</h3>
             <img src="/icons/telegram.svg" alt="">
         </div>
         <AppButton class="default"><span>t.me/goh_official</span></AppButton>
-    </div>
+    </a>
 </template>
 
 <style scoped lang="scss">
@@ -18,6 +18,7 @@ import AppButton from "../../../components/AppButton.vue";
 
 .content__banner {
     text-decoration: none;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
