@@ -96,3 +96,11 @@ declare module "@vueuse/core" {
         options?: UseAsyncStateOptions<Shallow, Data>
     ): UseAsyncStateReturn<Data, Params, Shallow>
 }
+
+interface ImportMetaEnv {
+    readonly VITE_API_URL: string
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv
+}

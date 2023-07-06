@@ -5,13 +5,12 @@ import axios from "axios";
 import AppSpinner from "../AppSpinner.vue";
 
 type Data = {
-    servers: object[]
     total_guilds: number
     total_members: number
 }
 
 const {state, isReady, isLoading} = useAsyncState<Data>(
-    axios.get("https://api.akemi.life/public/top-guilds").then(
+    axios.get(`${import.meta.env.VITE_API_URL}/api/v1/stats`).then(
         response => response.data
     ),
     undefined

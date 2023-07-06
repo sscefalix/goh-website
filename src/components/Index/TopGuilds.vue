@@ -11,8 +11,8 @@ type Data = {
 }
 
 const {state, isReady, isLoading} = useAsyncState<Data[]>(
-    axios.get("https://api.akemi.life/public/top-guilds").then(
-        response => response.data?.servers?.slice(1)
+    axios.get(`${import.meta.env.VITE_API_URL}/api/v1/top_guilds`).then(
+        response => response.data.slice(1)
     ),
     undefined
 )
