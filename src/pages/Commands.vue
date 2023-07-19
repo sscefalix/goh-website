@@ -18,14 +18,19 @@ const {state, isReady, isLoading} = useAsyncState<Command[]>(
     []
 )
 
+const categories = computed(() =>
+    isReady ? [...new Set(state.value.map(command => command.category))] : []
+)
+
 const filteredCommands = computed(() =>
-    search.value.length > 0 && category.value === "all" ?
-        state.value.filter(command => {
-            const query = search.value.toLowerCase()
-            return command.name.toLowerCase().includes(query) || command.description.toLowerCase().includes(query)
-        }) : state.value.filter(command =>
-            category.value === 'all' ? true : command.category === category.value
-        )
+    isReady ? search.value.length > 0 && category.value === "all" ?
+            state.value.filter(command => {
+                const query = search.value.toLowerCase()
+                return command.name.toLowerCase().includes(query) || command.description.toLowerCase().includes(query)
+            }) : state.value.filter(command =>
+                category.value === 'all' ? true : command.category === category.value
+            )
+        : []
 )
 
 </script>
@@ -33,11 +38,20 @@ const filteredCommands = computed(() =>
 <template>
     <section>
         <h1 class="title">Документация по командам</h1>
-        <p class="subtitle">На данный момент мы имеем {{ state.length }} команд в 9 категориях, ознакомиться с ними
+        <p class="subtitle">На данный момент мы имеем {{ state.length }} команд в {{ categories.length }} категориях,
+            ознакомиться с ними
             можно ниже.</p>
         <div class="commands__container">
-            <CommandsNavigation v-model:search="search" v-model:category="category"/>
-            <CommandsList :commands="filteredCommands" v-if="isReady"/>
+            <CommandsNavigation
+                v-model:search="search"
+                v-model:currentCategory="category"
+                :categories="categories"
+                v-if="isReady"
+            />
+            <CommandsList
+                :commands="filteredCommands"
+                v-if="isReady"
+            />
             <div class="center" v-if="isLoading">
                 <AppSpinner/>
             </div>

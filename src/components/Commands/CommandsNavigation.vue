@@ -3,12 +3,13 @@
 import CommandsSearch from "./CommandsSearch.vue";
 
 interface Props {
-    category: string
+    currentCategory: string
     search: string
+    categories: string[]
 }
 
 defineProps<Props>()
-defineEmits(["update:category", "update:search"])
+defineEmits(["update:currentCategory", "update:search"])
 
 </script>
 
@@ -16,59 +17,17 @@ defineEmits(["update:category", "update:search"])
     <nav class="commands">
         <CommandsSearch @input="$emit('update:search', ($event.target as HTMLInputElement).value)" :value="search" />
         <div class="categories">
-            <div class="button">
+            <div class="category">
                 <input type="radio" id="all" value="all"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'all'">
+                       @input="$emit('update:currentCategory', ($event.target as HTMLInputElement).value)"
+                       :checked="currentCategory == 'all'">
                 <label for="all">Все категории</label>
             </div>
-            <div class="button">
-                <input type="radio" id="economy" value="economy"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'economy'">
-                <label for="economy">Экономика</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="filters" value="filters"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'filters'">
-                <label for="filters">Фильтры</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="fun" value="fun"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'fun'">
-                <label for="fun">Развлечения</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="moderation" value="moderation"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'moderation'">
-                <label for="moderation">Модерация</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="images" value="images"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'images'">
-                <label for="images">Картинки</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="roleplay" value="roleplay"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'roleplay'">
-                <label for="roleplay">Ролеплей</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="nsfw" value="nsfw"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'nsfw'">
-                <label for="nsfw">NSFW</label>
-            </div>
-            <div class="button">
-                <input type="radio" id="utils" value="utils"
-                       @input="$emit('update:category', ($event.target as HTMLInputElement).value)"
-                       :checked="category == 'utils'">
-                <label for="utils">Утилиты</label>
+            <div class="category" v-for="category in categories">
+                <input type="radio" :id="category" :value="category"
+                       @input="$emit('update:currentCategory', ($event.target as HTMLInputElement).value)"
+                       :checked="currentCategory === category">
+                <label :for="category">{{category}}</label>
             </div>
         </div>
     </nav>
@@ -92,7 +51,7 @@ defineEmits(["update:category", "update:search"])
     gap: 4px;
 }
 
-.button {
+.category {
     display: block;
     width: 100%;
 }
