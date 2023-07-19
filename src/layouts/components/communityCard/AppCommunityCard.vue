@@ -4,14 +4,14 @@ import AppCommunityBanner from "./AppCommunityBanner.vue";
 </script>
 
 <template>
-    <div class="community">
-        <div class="community__content">
-            <div class="content__title">Сообщество</div>
-            <div class="content__columns">
+    <div class="community" data-community>
+        <div class="community__content" data-community>
+            <div class="community__content-title" data-community>Сообщество</div>
+            <div class="community__content-columns" data-community>
                 <AppCommunityColumn title="Список изменений" description="Обновления и улучшения в одном месте."
                                     href="/changelog"/>
                 <AppCommunityColumn title="Команды" description="Сводка доступных функций и команд в одном месте."
-                                    href="#"/>
+                                    href="/commands"/>
                 <AppCommunityColumn title="Разработчики" description="Коллектив создателей с новаторским подходом."
                                     href="/team"/>
                 <AppCommunityColumn title="GoH Ultra" description="Дополнительные возможности за небольшую плату."
@@ -27,6 +27,7 @@ import AppCommunityBanner from "./AppCommunityBanner.vue";
 @import "src/assets/scss/variables.scss";
 
 .community {
+    z-index: 10000;
     background-color: $white;
     position: absolute;
     top: 93px;
@@ -52,17 +53,16 @@ import AppCommunityBanner from "./AppCommunityBanner.vue";
         display: flex;
         flex-direction: column;
 
-        .content__title {
+        &-title {
             font-size: 18px;
             font-weight: 700;
         }
+        &-columns {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
     }
-}
-
-.content__columns {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
 }
 </style>

@@ -7,26 +7,28 @@ import TopGuilds from "../components/Index/TopGuilds.vue";
 </script>
 
 <template>
-    <section class="header">
-        <h1 class="title">Универсальный инструмент для использования в Discord!</h1>
-        <p class="subtitle">Встречайте — GoH! Многофункциональный бот, который улучшит ваш сервер как никогда раньше.</p>
-        <div class="buttons">
-            <AppButton class="dark">
-                <img src="/icons/discord.svg" alt="">
-                Пригласить на сервер
-            </AppButton>
-            <AppButton class="default">Документация</AppButton>
-        </div>
-    </section>
-    <section>
-        <Statistic />
-    </section>
-    <section>
-        <Advantages />
-    </section>
-    <section>
-        <TopGuilds />
-    </section>
+    <div>
+        <section class="header">
+            <h1 class="title">Универсальный инструмент для использования в Discord!</h1>
+            <p class="subtitle">Встречайте — GoH! Многофункциональный бот, который улучшит ваш сервер как никогда раньше.</p>
+            <div class="buttons">
+                <AppButton class="dark">
+                    <img src="/icons/discord.svg" alt="">
+                    Пригласить на сервер
+                </AppButton>
+                <AppButton class="default">Документация</AppButton>
+            </div>
+        </section>
+        <section>
+            <Statistic />
+        </section>
+        <section>
+            <Advantages />
+        </section>
+        <section>
+            <TopGuilds />
+        </section>
+    </div>
 </template>
 
 <style scoped lang="scss">

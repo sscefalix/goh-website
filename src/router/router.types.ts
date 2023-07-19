@@ -13,5 +13,6 @@ export enum RouteNamesEnum {
     team = "team",
     changelog = "changelog",
     offer = "offer",
-    cookies = "cookies"
+    cookies = "cookies",
+    commands = "commands"
 }

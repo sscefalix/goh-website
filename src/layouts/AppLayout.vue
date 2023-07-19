@@ -6,8 +6,10 @@ const route = useRoute();
 
 <template>
     <component :is="route.meta.layoutComponent">
-        <slot/>
+        <slot />
     </component>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

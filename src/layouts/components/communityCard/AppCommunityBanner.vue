@@ -4,12 +4,12 @@ import AppButton from "../../../components/AppButton.vue";
 </script>
 
 <template>
-    <a class="content__banner" href="https://t.me/goh_official">
-        <div class="banner__left">
-            <h3 class="banner__title">Подписывайтесь на нас в Telegram!</h3>
-            <img src="/icons/telegram.svg" alt="">
+    <a class="content__banner" href="https://t.me/goh_official" data-community>
+        <div class="banner__left" data-community>
+            <h3 class="banner__title" data-community>Подписывайтесь на нас в Telegram!</h3>
+            <img src="/icons/telegram.svg" alt="" data-community>
         </div>
-        <AppButton class="default"><span>t.me/goh_official</span></AppButton>
+        <AppButton class="default" data-community><span>t.me/goh_official</span></AppButton>
     </a>
 </template>
 

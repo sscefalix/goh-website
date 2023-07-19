@@ -6,6 +6,7 @@ import Team from "../pages/Team.vue";
 import Changelog from "../pages/Changelog.vue";
 import Cookies from "../pages/Cookies.vue";
 import Offer from "../pages/Offer.vue";
+import Commands from "../pages/Commands.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -34,6 +35,11 @@ const router = createRouter({
             path: '/cookies',
             name: RouteNamesEnum.cookies,
             component: Cookies
+        },
+        {
+            path: '/commands',
+            name: RouteNamesEnum.commands,
+            component: Commands
         }
     ]
 })

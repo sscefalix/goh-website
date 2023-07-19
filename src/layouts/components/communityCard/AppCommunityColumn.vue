@@ -12,13 +12,13 @@ defineProps<Props>()
 </script>
 
 <template>
-    <router-link class="content__column" :to="href" v-if="!href.startsWith('http')">
-        <p class="content__column__title" :class="className">{{title}} <img src="/icons/star.svg" alt="" v-if="icon"></p>
-        <p class="content__column__description">{{description}}</p>
+    <router-link class="content__column" :to="href" data-community v-if="!href.startsWith('http')">
+        <p class="content__column__title" :class="className">{{title}} <img src="/icons/star.svg" alt="" data-community v-if="icon"></p>
+        <p class="content__column__description" data-community>{{description}}</p>
     </router-link>
-    <a :href="href" class="content__column" v-else>
-        <p class="content__column__title" :class="className">{{title}} <img src="/icons/star.svg" alt="" v-if="icon"></p>
-        <p class="content__column__description">{{description}}</p>
+    <a :href="href" class="content__column" data-community v-else>
+        <p class="content__column__title" :class="className">{{title}} <img src="/icons/star.svg" alt="" data-community v-if="icon"></p>
+        <p class="content__column__description" data-community>{{description}}</p>
     </a>
 </template>
 
@@ -53,7 +53,7 @@ defineProps<Props>()
         font-size: 16px;
         font-weight: 400;
         color: $text-secondary;
-        max-width: 234px;
+        max-width: 220px;
         transition: color 200ms;
     }
 }

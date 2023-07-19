@@ -20,7 +20,7 @@
                         <a href="https://discord.gg/UJ8938E9Ne" target="_blank">Сервер поддержки</a>
                         <router-link to="/changelog">Список изменений</router-link>
                         <router-link to="/team">Разработчики</router-link>
-                        <router-link to="#">Команды</router-link>
+                        <router-link to="/commands">Команды</router-link>
                         <router-link to="#">GoH Ultra</router-link>
                     </div>
                 </div>
