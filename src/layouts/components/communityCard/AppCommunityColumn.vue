@@ -53,7 +53,7 @@ defineProps<Props>()
         font-size: 16px;
         font-weight: 400;
         color: $text-secondary;
-        max-width: 220px;
+        max-width: 232px;
         transition: color 200ms;
     }
 }

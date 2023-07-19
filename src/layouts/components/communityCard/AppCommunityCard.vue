@@ -10,13 +10,15 @@ import AppCommunityBanner from "./AppCommunityBanner.vue";
             <div class="community__content-columns" data-community>
                 <AppCommunityColumn title="Список изменений" description="Обновления и улучшения в одном месте."
                                     href="/changelog"/>
+                <AppCommunityColumn title="Статус сервисов" description="Мониторинг статуса сервисов в реальном времени."
+                                    href="#"/>
                 <AppCommunityColumn title="Команды" description="Сводка доступных функций и команд в одном месте."
                                     href="/commands"/>
+                <AppCommunityColumn title="Сервер поддержки" description="Центр помощи и обратной связи для всех." href="https://discord.gg/UJ8938E9Ne" />
                 <AppCommunityColumn title="Разработчики" description="Коллектив создателей с новаторским подходом."
                                     href="/team"/>
                 <AppCommunityColumn title="GoH Ultra" description="Дополнительные возможности за небольшую плату."
                                     href="#" className="text-primary" :icon="true"/>
-                <AppCommunityColumn title="Сервер поддержки" description="Центр помощи и обратной связи для всех." href="https://discord.gg/UJ8938E9Ne" />
             </div>
         </div>
         <AppCommunityBanner/>
